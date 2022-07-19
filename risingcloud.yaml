@@ -1,0 +1,17 @@
+name: risingcloud-demo-rs
+url: risingcloud-demo-rs
+team: 62ce153c209b760024d93f5f
+mode: risingcloud
+workspace: ye-olde-demo
+from: rust:alpine
+build: []
+deps: 
+  - apk add openssl-dev musl-dev
+  - cargo install --path .
+daemons: []
+run: demo-risingcloud-rs
+timeout: 300000
+env: {}
+minWorkers: 0
+maxWorkers: 8
+maxStorage: 4000

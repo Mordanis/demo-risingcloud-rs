@@ -34,6 +34,7 @@ impl IncomingRequest {
     fn load() -> Self {
         
     }
+    
     pub fn load() -> Result<Self> {
         let mut fp = std::fs::File::options()
             .read(true)
@@ -102,9 +103,19 @@ Risingcloud deployment is also very simple
 - `risingcloud deploy`
 
 The changes to `risingcloud.yaml` are:
-from:
+
+- from:
+
 	`from: rust:alpine`
-deps:
-	`deps: cargo install --path .`
-run:
-	`run: risingcloud-demo-rs`
+	
+- deps:
+
+	```
+	deps: 
+	    - apk add openssl-dev musl-dev
+	    - cargo install --path .
+	```
+	
+- run:
+
+	`run: demo-risingcloud-rs`
